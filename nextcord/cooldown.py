@@ -18,6 +18,7 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
 
+# Imports
 from nextcord.ext import commands
 from nextcord.ext.commands import (
 	CooldownMapping as CDM,
@@ -46,12 +47,12 @@ def cooldown(rate: Optional[int] = MISSING, per: Optional[float] = MISSING):
 	"""
   def decorator(func: Callable):
     if isinstance(func, CD):
-			# Activates the cooldown.
+     # Activates the cooldown.
       func._buckets = cooldown_mapping
-     else:
-			# Raises the error if it is applied to anything except a command, like a function?
+    else:
+      # Raises the error if it is applied to anything except a command, like a function?
       raise ValueError("Cooldowns must be applied to a command only.")
 			
-	return decorator
+  return decorator
 	# This returns the decorator so that this actually works,
 	# since this is a decorator function in another function
